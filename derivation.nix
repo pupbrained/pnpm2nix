@@ -138,7 +138,7 @@ in {
     '';
 
     installPhase = let
-      linkBinOutputs = "${nodejs.passthru.python}/bin/python ${linkBinOutputsScript}";
+      linkBinOutputs = "${pkgs.python3}/bin/python ${linkBinOutputsScript}";
     in attrs.installPhase or ''
       runHook preInstall
 
