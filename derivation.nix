@@ -32,7 +32,7 @@ in {
 
     propagatedBuildInputs = [];
 
-    buildInputs = [ nodejs nodejs.passthru.python2 node-gyp ]
+    buildInputs = [ nodejs nodejs.passthru.python node-gyp ]
       ++ lib.optionals (lib.hasAttr "buildInputs" attrs) attrs.buildInputs
       ++ lib.optionals linkDevDependencies devDependencies
       ++ deps;
