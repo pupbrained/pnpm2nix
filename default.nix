@@ -1,5 +1,5 @@
 { pkgs ? import <nixpkgs> {}
-, nodejs ? pkgs.nodejs-16_x
+, nodejs ? pkgs.nodejs
 , nodePackages ? pkgs.nodePackages
 , node-gyp ? nodePackages.node-gyp
 } @modArgs:
@@ -198,8 +198,8 @@ in {
       };
 
   in
-    assert (pnpmlock.lockfileVersion == 5 || pnpmlock.lockfileVersion == 5.4);
-  (mkPnpmDerivation {
+     assert (pnpmlock.lockfileVersion == 5 || pnpmlock.lockfileVersion == 5.1 || pnpmlock.lockfileVersion == 5.4 );
+(mkPnpmDerivation {
     deps = (builtins.map
       (attrName: packages."${attrName}")
       (pnpmlock.dependencies ++ pnpmlock.optionalDependencies));
