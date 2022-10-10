@@ -1,6 +1,6 @@
 { pkgs ? import <nixpkgs> {}
 , nodejs ? pkgs.nodejs-16_x
-, nodePackages ? pkgs.nodePackages_16_x
+, nodePackages ? pkgs.nodePackages
 , node-gyp ? nodePackages.node-gyp
 } @modArgs:
 
