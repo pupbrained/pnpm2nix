@@ -58,6 +58,8 @@ if __name__ == '__main__':
 
         fin = fin.encode("utf-8");
         fout = fout.encode("utf-8");
+        
+        os.makedirs(os.path.dirname(fout), exist_ok=True)
 
         os.symlink(fin, fout)
         os.chmod(fout, 0o755)
