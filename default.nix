@@ -20,7 +20,7 @@ let
     inherit pkgs nodejs nodePackages;
   };
 
-  importYAML = name: yamlFile: (lib.importJSON ((pkgs.runCommandNoCC name {} ''
+  importYAML = name: yamlFile: (lib.importJSON ((pkgs.runCommand name {} ''
     mkdir -p $out
     ${pkgs.yaml2json}/bin/yaml2json < ${yamlFile} | ${pkgs.jq}/bin/jq -a '.' > $out/pnpmlock.json
   '').outPath + "/pnpmlock.json"));
@@ -49,7 +49,7 @@ in {
         nodePackages.pnpm
       ];
       srcs = [];
-      src = pkgs.runCommandNoCC "pnpm2nix-dummy-env-src" {} ''
+      src = pkgs.runCommand "pnpm2nix-dummy-env-src" {} ''
         mkdir $out
       '';
       # Remove original nodejs from inputs, it's now propagated and stripped from npm
