@@ -28,7 +28,7 @@ in {
     # Trying to reduce some closure size
     dontPatchShebangs = true;
 
-    nativeBuildInputs = with pkgs; [ pkgconfig ];
+    nativeBuildInputs = with pkgs; [ pkg-config ];
 
     propagatedBuildInputs = [];
 
