@@ -26,7 +26,7 @@ let
   test-scoped = importTest ./test-scoped;
   test-recursive-link = importTest ./recursive-link/packages/a;
 
-  mkTest = (name: test: pkgs.runCommandNoCC "${name}" { } (''
+  mkTest = (name: test: pkgs.runCommand "${name}" { } (''
     mkdir $out
 
   '' + test));
