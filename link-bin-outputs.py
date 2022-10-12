@@ -24,7 +24,7 @@ def get_bin_attr_files(package_json):
         if isinstance(bins, str):
             return ((package_json['name'], bins),)
         else:
-            return bins.items()
+            return list(bins.items())
 
 
 def get_directories_bin_attr_files(package_json, lib_out):
@@ -55,11 +55,6 @@ if __name__ == '__main__':
             args.bin_out, args.lib_out, itertools.chain(
                 get_bin_attr_files(package_json),
                 get_directories_bin_attr_files(args.lib_out, package_json))):
-
-        fin = fin.encode("utf-8");
-        fout = fout.encode("utf-8");
-        
-        os.makedirs(os.path.dirname(fout), exist_ok=True)
 
         os.symlink(fin, fout)
         os.chmod(fout, 0o755)
