@@ -66,7 +66,7 @@ in {
     sourceRoot = ".";
     postUnpack = ''
       mkdir -p node_modules
-      cp -R pnpm2nix-source-*/* node_modules/
+      cp -R --force pnpm2nix-source-*/* node_modules/
       rm -r pnpm2nix-source-*
     '';
 
