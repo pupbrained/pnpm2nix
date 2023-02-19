@@ -148,7 +148,7 @@ in {
       fixupPhase = ":";
       installPhase = ''
         mkdir -p $out/${pname}
-        cp -a * $out/${pname}/
+        cp -a --force * $out/${pname}/
       '';
     }));
     wrapSrc = pkgInfo: let
